@@ -2189,3 +2189,163 @@ ul {
     left: -10px;
   }
 }
+
+/* ==========================================================================
+   RECIPE COLLECTION PAGE & FILTER BUTTONS
+   Aesthetic identical to Header [RECIPES HOT] Button
+   ========================================================================== */
+.recipes-collection-page {
+  background: #faf9f6;
+  min-height: 100vh;
+}
+
+.recipes-hero-header {
+  background: linear-gradient(135deg, #CA2100 0%, #8A1500 100%);
+  color: #ffffff;
+  padding: 65px 20px 55px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.recipes-hero-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(238, 238, 34, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.recipes-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.3);
+}
+
+.recipe-filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 10px;
+}
+
+/* Recipe Category Filter Button (Matching Header [RECIPES HOT] Button) */
+.recipe-filter-btn {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1.5px solid rgba(202, 33, 0, 0.35);
+  background: #ffffff;
+  color: #2b2b2b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  outline: none;
+  position: relative;
+}
+
+.recipe-filter-btn i {
+  color: var(--primary-red);
+  font-size: 0.95rem;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.recipe-filter-btn:hover {
+  background: #fff6f4;
+  border-color: var(--primary-red);
+  color: var(--primary-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(202, 33, 0, 0.15);
+}
+
+.recipe-filter-btn:hover i {
+  transform: scale(1.18);
+}
+
+/* ACTIVE STATE: Matches Header Recipe Button with Signature Badshah Red & Yellow Glow */
+.recipe-filter-btn.active {
+  background: var(--primary-red) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-red) !important;
+  box-shadow: 0 6px 20px rgba(202, 33, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.recipe-filter-btn.active i {
+  color: var(--accent-yellow) !important;
+}
+
+/* Count Tag Pill (Direct replica of .recipe-tag-pill in header) */
+.recipe-filter-count {
+  background: rgba(202, 33, 0, 0.1);
+  color: var(--primary-red);
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+}
+
+.recipe-filter-btn:hover .recipe-filter-count {
+  background: rgba(202, 33, 0, 0.2);
+  color: var(--primary-red);
+}
+
+/* When active, turns turmeric yellow with bold black font just like the header HOT badge */
+.recipe-filter-btn.active .recipe-filter-count {
+  background: var(--accent-yellow) !important;
+  color: #000000 !important;
+  font-weight: 900;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Difficulty Filter Buttons */
+.recipe-diff-btn {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  color: #555555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.recipe-diff-btn:hover {
+  border-color: var(--primary-red);
+  color: var(--primary-red);
+  background: #fff8f6;
+}
+
+.recipe-diff-btn.active {
+  background: var(--primary-red) !important;
+  color: #ffffff !important;
+  border-color: var(--primary-red) !important;
+  box-shadow: 0 3px 10px rgba(202, 33, 0, 0.25);
+}
+

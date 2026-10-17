@@ -151,13 +151,13 @@ export const RecipesPage: React.FC<RecipesPageProps> = ({
           </div>
 
           {/* Category Tabs */}
-          <div className="recipe-filter-bar" style={{ margin: 0, padding: 0 }}>
+          <div className="recipe-filter-bar">
             {[
-              { label: 'All Recipes', val: 'all', count: recipes.length },
-              { label: 'Traditional Curries & Saag', val: 'curry', count: recipes.filter(r => r.category === 'curry').length },
-              { label: 'Rice & Biryani', val: 'rice', count: recipes.filter(r => r.category === 'rice').length },
-              { label: 'Heirloom Pickles & Achar', val: 'pickle', count: recipes.filter(r => r.category === 'pickle').length },
-              { label: 'Festive Drinks & Thandai', val: 'beverage', count: recipes.filter(r => r.category === 'beverage').length }
+              { label: 'All Recipes', val: 'all', count: recipes.length, icon: 'fa-utensils' },
+              { label: 'Traditional Curries & Saag', val: 'curry', count: recipes.filter(r => r.category === 'curry').length, icon: 'fa-pepper-hot' },
+              { label: 'Rice & Biryani', val: 'rice', count: recipes.filter(r => r.category === 'rice').length, icon: 'fa-fire' },
+              { label: 'Heirloom Pickles & Achar', val: 'pickle', count: recipes.filter(r => r.category === 'pickle').length, icon: 'fa-mortar-pestle' },
+              { label: 'Festive Drinks & Thandai', val: 'beverage', count: recipes.filter(r => r.category === 'beverage').length, icon: 'fa-glass-cheers' }
             ].map((tab) => (
               <button
                 key={tab.val}
@@ -165,7 +165,9 @@ export const RecipesPage: React.FC<RecipesPageProps> = ({
                 className={`recipe-filter-btn ${activeCategory === tab.val ? 'active' : ''}`}
                 onClick={() => setActiveCategory(tab.val)}
               >
-                {tab.label} <span style={{ opacity: 0.75, fontSize: '0.8rem' }}>({tab.count})</span>
+                <i className={`fas ${tab.icon}`}></i>
+                <span>{tab.label}</span>
+                <span className="recipe-filter-count">{tab.count}</span>
               </button>
             ))}
           </div>
@@ -176,32 +178,23 @@ export const RecipesPage: React.FC<RecipesPageProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '12px',
-              marginTop: '16px',
+              gap: '10px',
+              marginTop: '18px',
               fontSize: '0.85rem',
               color: '#666'
             }}
           >
-            <span style={{ fontWeight: 600 }}>Difficulty:</span>
+            <span style={{ fontWeight: 700, textTransform: 'uppercase', fontSize: '0.78rem', letterSpacing: '0.5px' }}>
+              Level:
+            </span>
             {['all', 'easy', 'medium', 'hard'].map((diff) => (
               <button
                 key={diff}
                 type="button"
+                className={`recipe-diff-btn ${difficultyFilter === diff ? 'active' : ''}`}
                 onClick={() => setDifficultyFilter(diff)}
-                style={{
-                  background: difficultyFilter === diff ? 'var(--primary-red)' : '#f2f2f2',
-                  color: difficultyFilter === diff ? '#fff' : '#444',
-                  border: 'none',
-                  padding: '4px 14px',
-                  borderRadius: '16px',
-                  cursor: 'pointer',
-                  textTransform: 'capitalize',
-                  fontWeight: 600,
-                  fontSize: '0.8rem',
-                  transition: 'all 0.2s'
-                }}
               >
-                {diff === 'all' ? 'Any' : diff}
+                {diff === 'all' ? 'All Difficulties' : diff}
               </button>
             ))}
           </div>
