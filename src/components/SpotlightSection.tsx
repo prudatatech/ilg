@@ -36,7 +36,7 @@ export const SpotlightSection: React.FC<SpotlightSectionProps> = ({ onNavigate }
       {/* Cold-Pressed Mustard Oil Spotlight */}
       <section className="spotlight-section alt-bg">
         <div className="container">
-          <div className="spotlight-row" style={{ flexDirection: 'row-reverse' }}>
+          <div className="spotlight-row spotlight-row-reverse">
             <div className="spotlight-col-img">
               <div className="spotlight-composition">
                 <img src="/Black Mustard Oil 1ltr.png" alt="Kesari Nandan Black Mustard Oil Bottle" className="spotlight-pack-img" />

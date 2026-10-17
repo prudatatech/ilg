@@ -76,23 +76,8 @@ export const ShopPage: React.FC<ShopPageProps> = ({
   return (
     <div>
       {/* Header Banner */}
-      <div
-        style={{
-          background: 'linear-gradient(135deg, #CA2100 0%, #851200 100%)',
-          color: '#ffffff',
-          padding: '50px 20px',
-          textAlign: 'center'
-        }}
-      >
-        <h1
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: '2.8rem',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            letterSpacing: '1px'
-          }}
-        >
+      <div className="shop-hero-header">
+        <h1 className="shop-hero-title">
           KESARI NANDAN PRODUCTS
         </h1>
         <p style={{ fontSize: '1.1rem', marginTop: '8px', color: '#ffde59' }}>
@@ -101,19 +86,8 @@ export const ShopPage: React.FC<ShopPageProps> = ({
       </div>
 
       {/* Filter and Sort Toolbar */}
-      <div
-        style={{
-          maxWidth: '1300px',
-          margin: '30px auto',
-          padding: '0 20px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '20px'
-        }}
-      >
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+      <div className="shop-toolbar-wrap">
+        <div className="shop-filter-tabs-scroll">
           {[
             { label: 'All Products', val: 'all' },
             { label: 'Grounded Spices', val: 'Grounded Spices' },

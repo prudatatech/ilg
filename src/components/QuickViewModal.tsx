@@ -25,19 +25,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           &times;
         </button>
 
-        <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
-          <div
-            style={{
-              flex: 1,
-              minWidth: '280px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: '#fafafa',
-              borderRadius: '8px',
-              padding: '20px'
-            }}
-          >
+        <div className="quickview-layout-wrap">
+          <div className="quickview-img-col">
             <img
               src={product.image}
               alt={product.name}
@@ -45,7 +34,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             />
           </div>
 
-          <div style={{ flex: 1.2, minWidth: '280px' }}>
+          <div className="quickview-info-col">
             <span
               style={{
                 fontSize: '0.8rem',

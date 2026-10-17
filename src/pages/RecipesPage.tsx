@@ -221,7 +221,7 @@ export const RecipesPage: React.FC<RecipesPageProps> = ({
               </button>
             </div>
           ) : (
-            <div className="recipes-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '30px' }}>
+            <div className="recipes-grid recipes-catalog-grid">
               {filtered.map((recipe) => (
                 <div
                   key={recipe.id}

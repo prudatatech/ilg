@@ -12,8 +12,8 @@ export const AboutPage: React.FC = () => {
 
       <section style={{ padding: '60px 0', background: '#ffffff' }} id="heritage">
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '50px', flexWrap: 'wrap', marginBottom: '60px' }}>
-            <div style={{ flex: 1, minWidth: '320px' }}>
+          <div className="about-story-row">
+            <div className="about-story-col-text">
               <h2
                 style={{
                   color: 'var(--primary-red)',
@@ -34,7 +34,7 @@ export const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div style={{ flex: 1, minWidth: '320px', textAlign: 'center' }}>
+            <div className="about-story-col-img">
               <img
                 src="/assets/story-bicycle.jpg"
                 alt="Vintage Spice Courier Bicycle"

@@ -96,8 +96,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onShowToast }) => {
           </h3>
 
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <div className="form-group" style={{ flex: 1, minWidth: '220px' }}>
+            <div className="form-row-2col">
+              <div className="form-group">
                 <label>Your Full Name *</label>
                 <input
                   type="text"
@@ -108,7 +108,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onShowToast }) => {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
-              <div className="form-group" style={{ flex: 1, minWidth: '220px' }}>
+              <div className="form-group">
                 <label>Phone Number *</label>
                 <input
                   type="tel"

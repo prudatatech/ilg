@@ -99,15 +99,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, onClose }) => 
               >
                 Fresh Ingredients & Spices:
               </h3>
-              <ul
-                style={{
-                  listStyle: 'none',
-                  padding: 0,
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-                  gap: '8px'
-                }}
-              >
+              <ul className="recipe-ingredients-grid">
                 {recipe.ingredients.map((ing, idx) => (
                   <li
                     key={idx}

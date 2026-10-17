@@ -168,86 +168,101 @@ export const Header: React.FC<HeaderProps> = ({
                 </a>
               </li>
             </ul>
+          </div>
 
-            {/* Header Actions */}
-            <div className="header-actions">
-              <a
-                href="#account"
-                className="header-action-btn"
-                title="My Account"
-                onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
-              >
-                <i className="far fa-user"></i>
-              </a>
-              <div
-                className="header-action-btn"
-                title="Wishlist"
-                onClick={() => onNavigate('shop')}
-              >
-                <i className="far fa-heart"></i>
-                <span className="action-badge wishlist-badge">{wishlistCount}</span>
-              </div>
-              <div
-                className="header-action-btn"
-                title="Shopping Cart"
-                onClick={onOpenCart}
-              >
-                <i className="fas fa-shopping-basket"></i>
-                <span className="action-badge cart-count-badge">{cartCount}</span>
-              </div>
-              <button
-                className="mobile-toggle"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle navigation"
-              >
-                <i className="fas fa-bars"></i>
-              </button>
+          {/* Header Actions (Visible on Desktop & Mobile) */}
+          <div className="header-actions">
+            <a
+              href="#account"
+              className="header-action-btn action-user-btn"
+              title="My Account"
+              onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
+            >
+              <i className="far fa-user"></i>
+            </a>
+            <div
+              className="header-action-btn action-wishlist-btn"
+              title="Wishlist"
+              onClick={() => onNavigate('shop')}
+            >
+              <i className="far fa-heart"></i>
+              <span className="action-badge wishlist-badge">{wishlistCount}</span>
             </div>
+            <div
+              className="header-action-btn action-cart-btn"
+              title="Shopping Cart"
+              onClick={onOpenCart}
+            >
+              <i className="fas fa-shopping-basket"></i>
+              <span className="action-badge cart-count-badge">{cartCount}</span>
+            </div>
+            <button
+              type="button"
+              className="mobile-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation"
+            >
+              <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            </button>
           </div>
 
         </div>
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div style={{ background: '#A31A00', padding: '15px 20px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="mobile-nav-drawer">
+            {/* Mobile Search */}
+            <form onSubmit={(e) => { handleSearchSubmit(e); setMobileMenuOpen(false); }} className="mobile-search-form">
+              <input
+                type="text"
+                className="mobile-search-input"
+                placeholder="Search Spices & Oils..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button type="submit" className="mobile-search-btn" title="Search">
+                <i className="fas fa-search"></i>
+              </button>
+            </form>
+
+            <ul className="mobile-menu-links">
               <li>
-                <a href="#home" style={{ color: '#fff', fontWeight: 700 }} onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }}>
-                  HOME
+                <a href="#home" className={currentPage === 'home' ? 'active' : ''} onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }}>
+                  <i className="fas fa-home"></i> HOME
                 </a>
               </li>
               <li>
-                <a href="#shop" style={{ color: '#fff', fontWeight: 700 }} onClick={() => { onNavigate('shop'); setMobileMenuOpen(false); }}>
-                  SHOP PRODUCTS
+                <a href="#shop" className={currentPage === 'shop' ? 'active' : ''} onClick={() => { onNavigate('shop'); setMobileMenuOpen(false); }}>
+                  <i className="fas fa-shopping-bag"></i> SHOP PRODUCTS
                 </a>
               </li>
               <li>
                 <a
                   href="#recipes"
-                  style={{
-                    color: 'var(--accent-yellow)',
-                    fontWeight: 700,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}
+                  className={`mobile-recipes-link ${currentPage === 'recipes' ? 'active' : ''}`}
                   onClick={() => { onNavigate('recipes'); setMobileMenuOpen(false); }}
                 >
                   <i className="fas fa-utensils"></i> RECIPES COLLECTION
-                  <span style={{ background: 'var(--accent-yellow)', color: '#000', fontSize: '0.65rem', padding: '2px 6px', borderRadius: '10px', fontWeight: 800 }}>HOT</span>
+                  <span className="recipe-tag-pill">HOT</span>
                 </a>
               </li>
               <li>
-                <a href="#about" style={{ color: '#fff', fontWeight: 700 }} onClick={() => { onNavigate('about'); setMobileMenuOpen(false); }}>
-                  ABOUT US & HERITAGE
+                <a href="#about" className={currentPage === 'about' ? 'active' : ''} onClick={() => { onNavigate('about'); setMobileMenuOpen(false); }}>
+                  <i className="fas fa-award"></i> ABOUT US & HERITAGE
                 </a>
               </li>
               <li>
-                <a href="#contact" style={{ color: '#fff', fontWeight: 700 }} onClick={() => { onNavigate('contact'); setMobileMenuOpen(false); }}>
-                  CONTACT US
+                <a href="#contact" className={currentPage === 'contact' ? 'active' : ''} onClick={() => { onNavigate('contact'); setMobileMenuOpen(false); }}>
+                  <i className="fas fa-phone-alt"></i> CONTACT & INQUIRIES
                 </a>
               </li>
             </ul>
+
+            <div className="mobile-drawer-footer">
+              <a href="tel:+919876543210" className="mobile-call-link">
+                <i className="fas fa-phone-alt"></i> (022) 6777-4333 / +91 98765 43210
+              </a>
+            </div>
           </div>
         )}
       </header>
